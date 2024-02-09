@@ -11,18 +11,30 @@
     </div>
     @endif
 
+    @if(session()->has('loginError'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      {{ session('loginError') }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
+
     <main class="form-signin w-100 m-auto">
       <h1 class="h3 mb-3 fw-normal text-denter">Please Login</h1>
-      <form>
-        {{-- <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> --}}
+      <form action="/login" method="post">
+        @csrf
   
         <div class="form-floating">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-          <label for="floatingInput">Email address</label>
+          <input type="email" class="form-control" @error('email') is-invalid @enderror id="email" name="email" autofocus placeholder="name@example.com" required value="{{ old('email') }}">
+          <label for="email">Email address</label>
+          @error('email')
+            {{ @message }}
+          @enderror
+          <div class="invalid-feedback">
+          </div>
         </div>
         <div class="form-floating">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-          <label for="floatingPassword">Password</label>
+          <input type="password" class="form-control" id="password" name="password" required placeholder="Password">
+          <label for="password">Password</label>
         </div>
     
         <div class="form-check text-start my-3">
