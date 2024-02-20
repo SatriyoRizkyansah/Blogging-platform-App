@@ -22,6 +22,7 @@ class DashboardPostController extends Controller
         return view('dashboard\posts\index', [
             'posts' => Post::where('user_id', auth()->user()->id)->get()
         ]);
+
     }
 
     /**
@@ -52,6 +53,7 @@ class DashboardPostController extends Controller
         Post::create($validatedData);
 
         return redirect('/dashboard/posts')->with('success', 'New post has been added!');
+
     }
 
     /**

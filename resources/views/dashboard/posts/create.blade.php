@@ -5,12 +5,6 @@
   <h1 class="h2">My Post</h1>
 </div>
 
-@if(session()->has('success'))
-<div class="alert alert-success" role="alert">
-  {{ session('siccess') }}
-</div>
-@endif
-
 <div class="col-lg-8">
     <form method="post" action="/dashboard/posts">
         @csrf

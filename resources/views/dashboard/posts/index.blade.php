@@ -6,8 +6,8 @@
   <h1 class="h2">My Posts</h1>
 </div>
 
-@if(session()->has('seccess'))
-  <div class="alert alert-light" role="alert">
+@if(session()->has('success'))
+  <div class="alert alert-success col-lg-8" role="alert">
    {{ session('success') }}
   </div>
 @endif
