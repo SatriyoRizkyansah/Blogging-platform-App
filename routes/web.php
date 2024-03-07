@@ -35,7 +35,7 @@ Route::get('/about', function () {
         'active' => 'about',
         'name' => "Satriyo Rizkyansah",
         'email' => "satriyorizkyansah@gmail.com",
-        'img' => "img/123.jpeg"
+        'img' => "img/2.jpeg"
     ]);
 });
 
